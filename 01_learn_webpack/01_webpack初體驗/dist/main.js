@@ -1,0 +1,1 @@
+(()=>{var o={459:o=>{o.exports={formatDate:()=>"1995-04-20"}}},r={};function t(e){var s=r[e];if(void 0!==s)return s.exports;var a=r[e]={exports:{}};return o[e](a,a.exports,t),a.exports}(()=>{"use strict";const{formatDate:o}=t(459);console.log("0000"),console.log(o())})()})();

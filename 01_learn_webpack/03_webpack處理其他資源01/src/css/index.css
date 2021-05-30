@@ -1,0 +1,8 @@
+@import "./test.css";
+
+.bg-image {
+  background-image: url('../img/48.jpg');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
