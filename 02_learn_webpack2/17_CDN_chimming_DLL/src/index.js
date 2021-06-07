@@ -1,9 +1,10 @@
-import _ from 'lodash'
+// import _ from 'lodash'
 import dayjs from 'dayjs'
-import './bar_01'
+// import './bar_01'
 
-console.log(_.join(["Hello", "Index"]))
+console.log(join(["Hello", "Index"]))
 console.log(dayjs(), "Index")
+// console.log(_)
 
 // import(/* webpackChunkName: "foo" */'./foo').then(res => {
 //   console.log(res)
@@ -12,9 +13,6 @@ console.log(dayjs(), "Index")
 // import(/* webpackChunkName: "foo_02" */'./foo_02').then(res => {
 //   console.log(res)
 // })
-
-
-
 
 
 const button = document.createElement('button')
@@ -28,7 +26,7 @@ button.addEventListener('click', () => {
     /* webpackPreload: true */
     './element'
   ).then(({default: element}) => {
-    // console.log(element)
+    console.log(element)
     document.body.appendChild(element)
   })
 })

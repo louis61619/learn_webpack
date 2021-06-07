@@ -1,0 +1,16 @@
+body {
+  color: blue;
+  background-color: cornflowerblue;
+}
+
+html {
+  font-size: 20px;
+}
+
+.title {
+  color: #000;
+}
+
+h2 {
+  color: wheat;
+}
