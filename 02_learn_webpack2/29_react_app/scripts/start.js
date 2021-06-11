@@ -72,6 +72,7 @@ checkBrowsers(paths.appPath, isInteractive)
   .then(() => {
     // We attempt to use the default port but if it is busy, we offer the user to
     // run on a different port. `choosePort()` Promise resolves to the next free port.
+    // 選擇端口： 如果端口被佔用，提示
     return choosePort(HOST, DEFAULT_PORT);
   })
   .then(port => {
@@ -80,11 +81,16 @@ checkBrowsers(paths.appPath, isInteractive)
       return;
     }
 
+    //  核心：加載平時配置的webpack
     const config = configFactory('development');
+    // 使用的協議
     const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
+    // app名稱
     const appName = require(paths.appPackageJson).name;
 
+    // 判斷是否使用TS
     const useTypeScript = fs.existsSync(paths.appTsConfig);
+    // 當tsc編譯出現錯誤時，是否失敗
     const tscCompileOnError = process.env.TSC_COMPILE_ON_ERROR === 'true';
     const urls = prepareUrls(
       protocol,
@@ -99,6 +105,7 @@ checkBrowsers(paths.appPath, isInteractive)
         devServer.sockWrite(devServer.sockets, 'errors', errors),
     };
     // Create a webpack compiler that is configured with custom messages.
+    // 創建compiler
     const compiler = createCompiler({
       appName,
       config,
@@ -109,7 +116,9 @@ checkBrowsers(paths.appPath, isInteractive)
       tscCompileOnError,
       webpack,
     });
+
     // Load proxy config
+    // 加載proxySetting相關的配置
     const proxySetting = require(paths.appPackageJson).proxy;
     const proxyConfig = prepareProxy(
       proxySetting,
@@ -121,8 +130,10 @@ checkBrowsers(paths.appPath, isInteractive)
       proxyConfig,
       urls.lanUrlForConfig
     );
+
+    // 創建devServer的物件
     const devServer = new WebpackDevServer(compiler, serverConfig);
-    // Launch WebpackDevServer.
+    // 啟動devServer的服務
     devServer.listen(port, HOST, err => {
       if (err) {
         return console.log(err);

@@ -1,0 +1,12 @@
+body {
+  font-size: 30px;
+  background-color: #83cca9;
+}
+.title {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  color: #cc5555;
+  font-size: 150px;
+}

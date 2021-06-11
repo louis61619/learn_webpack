@@ -1,0 +1,1 @@
+"use strict";function n(n,o){return o+n}console.log(n(20,30));

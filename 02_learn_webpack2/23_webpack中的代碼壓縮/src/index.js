@@ -6,7 +6,7 @@ import './style.css'
 
 // console.log('index22')
 
-console.log(sum(30, 40))
+console.log(sum(30, 60))
 
 const titleDiv = document.createElement('div')
 titleDiv.className = "title"
